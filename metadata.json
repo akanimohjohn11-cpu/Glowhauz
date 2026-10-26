@@ -1,0 +1,6 @@
+{
+  "name": "GlowHauz Skincare and Wellness Store",
+  "description": "Where Skin Meets Science. Premium skincare, personal care, and wellness e-commerce storefront in Nigeria with seamless WhatsApp ordering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,812 @@
+# MASTER BUILD PROMPT: GLOWHAUZ SKINCARE & WELLNESS STORE
+
+## 1. YOUR ROLE AND RESPONSIBILITY
+
+Act as a coordinated senior product engineering team consisting of:
+
+1. A Senior UI/UX Designer specializing in premium beauty, skincare, wellness, and high-converting e-commerce.
+2. A Senior Frontend Engineer specializing in React, Next.js, TypeScript, responsive interfaces, accessibility, and maintainable architecture.
+3. A Senior Backend Engineer responsible for application logic, API handlers, data validation, and reliable server-side operations.
+4. A Database Architect specializing in PostgreSQL, relational data modeling, migrations, indexes, data integrity, and secure database access.
+5. A Security Engineer responsible for authentication, authorization, database access policies, session management, secure uploads, and protection of administrative functions.
+6. A Product Designer responsible for the customer journey, shopping experience, WhatsApp ordering, conversion optimization, and usability.
+7. A DevOps and Deployment Engineer responsible for environment configuration, production builds, hosting compatibility, routing, monitoring, backups, and deployment verification.
+8. A QA Engineer responsible for automated testing, browser workflows, accessibility, responsive behavior, error handling, and regression prevention.
+9. An SEO and Performance Specialist responsible for search-friendly pages, metadata, image optimization, loading performance, and Core Web Vitals.
+
+You are responsible for the complete implementation, not merely a visual prototype, static mockup, landing page, or collection of disconnected components.
+
+Make sensible engineering decisions independently. Do not ask unnecessary questions when a safe, reasonable default can be implemented. When a genuinely essential business asset or policy is missing, create an editable, clearly labeled placeholder rather than inventing business facts.
+
+Do not claim that any feature is implemented, tested, secure, or production-ready unless it actually is.
+
+## 2. PROJECT IDENTITY
+
+Business name: GlowHauz Skincare and Wellness Store
+
+Brand positioning: "Where Skin Meets Science."
+
+Website type: Premium beauty, skincare, personal care, and wellness e-commerce storefront.
+
+Primary market: Nigeria, including Enugu and other locations the business serves.
+
+Currency: Nigerian naira (NGN / ₦).
+
+Primary conversion action: Customers browse products, add products to a cart, review their selection, and submit their intended order through WhatsApp.
+
+Official WhatsApp number supplied by the business: 07089581351.
+
+For WhatsApp URL generation, normalize this Nigerian number to the appropriate international recipient format, normally 2347089581351. Validate the number and store it in an editable business setting.
+
+Business model:
+- Customers can browse and compare products.
+- Customers can view product details, prices, sizes, variants, and availability.
+- Customers can add multiple products to a cart.
+- Customers can review quantities and totals.
+- Customers can generate a personalized WhatsApp order message.
+- Customers manually send that message in WhatsApp.
+- The business owner confirms availability, payment, and delivery manually.
+
+There must be no mandatory customer account creation and no online payment gateway in the initial release.
+
+Opening WhatsApp is not an order confirmation, payment confirmation, or completed sale.
+
+## 3. PRIMARY OBJECTIVE
+
+Build a premium, clean, modern, responsive, trustworthy, and genuinely functional online store.
+
+The site must:
+- Generate product inquiries and WhatsApp orders.
+- Make product discovery easy.
+- Display accurate prices and product information.
+- Provide a reliable multi-product cart.
+- Support a secure, database-backed administrator dashboard.
+- Allow the owner to manage products, prices, images, categories, stock, collections, website content, contact details, and policies without editing code.
+- Work correctly on mobile phones, tablets, laptops, and desktops.
+- Deploy successfully to Vercel, with Netlify as an alternative when the chosen runtime and deployment adapter support the implementation.
+- Avoid accidental 404 errors, broken links, blank pages, dead buttons, and deployment-specific routing failures.
+
+Build the actual application and connect its components to real data. Do not substitute a static frontend for the requested functionality.
+
+## 4. REQUIRED DESIGN DIRECTION
+
+Create a modern botanical luxury visual identity.
+
+The website should feel like a premium skincare editorial combined with a highly usable e-commerce store.
+
+The design must communicate:
+- Elegance.
+- Calmness.
+- Cleanliness.
+- Trustworthiness.
+- Thoughtful product selection.
+- Scientific responsibility.
+- Ease of shopping.
+
+Avoid:
+- Generic templates with no brand identity.
+- Excessive gradients.
+- Neon colors.
+- Overly dark layouts.
+- Excessive animations.
+- Cluttered product cards.
+- Tiny text.
+- Unnecessary popups.
+- Fake scarcity.
+- Fake customer reviews.
+- Unsupported medical or cosmetic claims.
+- Generic dashboard styling that conflicts with the storefront's design system.
+
+### Required color tokens
+
+Use these colors consistently throughout the application:
+
+- Warm ivory: #F8F5EF
+- Blush rose: #E8C9CC
+- Sage green: #A7B5A0
+- Forest green: #34483B
+- White: #FFFFFF
+- Charcoal: #292B28
+
+Usage:
+- Main background: warm ivory.
+- Product cards and primary content surfaces: white.
+- Primary action buttons: forest green with white text.
+- Secondary accents and promotional sections: blush rose and sage.
+- Main text: charcoal.
+- Supporting text: an accessible muted neutral.
+- Focus states, borders, hover states, disabled controls, and error states: explicitly designed and accessible.
+
+Create centralized CSS variables or a typed theme configuration. Do not scatter inconsistent hard-coded colors across components.
+
+Check color contrast, including button labels and muted text. Use visible keyboard focus indicators.
+
+### Typography
+
+Use Cormorant Garamond for editorial headings and Lato for body text, navigation, product details, forms, prices, and buttons.
+
+Use responsive typography with clamp() and sensible fallback fonts.
+
+### Design behavior
+
+- Generous whitespace.
+- Consistent spacing and alignment.
+- Premium product photography.
+- Clear visual hierarchy.
+- Restrained transitions.
+- Subtle hover states.
+- Accessible controls.
+- Consistent buttons and form fields.
+- A coherent mobile experience.
+- No horizontal overflow at supported viewport widths.
+
+Create a cohesive design system before implementing all pages.
+
+## 5. TECHNOLOGY ARCHITECTURE
+
+Preferred stack:
+
+- Next.js with App Router.
+- React.
+- TypeScript with strict type checking.
+- Tailwind CSS.
+- Accessible reusable UI components, using shadcn/ui or Radix UI where appropriate.
+- Lucide icons.
+- Supabase PostgreSQL for persistent application data.
+- Supabase Auth or another appropriately managed authentication provider.
+- Supabase Storage or another persistent managed storage service for product images.
+- React Hook Form and Zod where useful for forms and validation.
+- Vitest and Testing Library for unit and component tests.
+- Playwright for end-to-end browser testing.
+
+Adapt to the existing project if it already has a sound, working architecture. Do not destroy or unnecessarily replace a functioning project merely to match a preferred library.
+
+If the chosen vibe-coding environment does not support a preferred service, select a compatible alternative that provides equivalent persistent database, storage, authentication, and authorization capabilities.
+
+Do not use an in-memory array or localStorage as the authoritative product database.
+
+Local storage may be used for the customer's shopping cart, but not as the sole source of truth for products, prices, stock, administrator accounts, or site settings.
+
+Keep business logic, database operations, validation, and presentation appropriately separated.
+
+Use reusable, typed components and a maintainable directory structure.
+
+## 6. REQUIRED PUBLIC PAGES
+
+Implement all of the following pages as real, navigable routes:
+
+1. Homepage: /
+2. Shop all: /shop
+3. Product details: /products/[slug]
+4. Category pages: /categories/[slug]
+5. Collection pages: /collections/[slug]
+6. Search results: /search
+7. Shopping cart: /cart
+8. About: /about
+9. Contact: /contact
+10. Privacy policy: /privacy
+11. Terms of use: /terms
+12. Delivery policy: /delivery
+13. Returns and refunds: /returns
+14. Product disclaimer: /product-disclaimer
+15. Frequently asked questions: /faq
+
+Implement sensible loading, empty, error, and not-found states.
+
+### Homepage
+
+Build these sections in this order where content is available:
+
+- Announcement bar.
+- Responsive header and navigation.
+- Brand hero.
+- Primary Shop Products CTA.
+- Secondary WhatsApp CTA.
+- Shop by Category.
+- Featured products loaded from the database.
+- New arrivals or curated collections when available.
+- Brand differentiators based on verified information.
+- About GlowHauz introduction.
+- Genuine customer testimonials only when supplied and authorized.
+- Frequently asked questions.
+- Final conversion section.
+- Complete footer.
+- Floating WhatsApp contact button.
+
+Use the headline:
+
+"Your Glow. Your Wellness. Your Way."
+
+Use this supporting copy:
+
+"Discover carefully selected skincare, beauty and wellness essentials designed to complement your personal care routine."
+
+Use "Where Skin Meets Science" as a brand statement.
+
+Do not invent awards, certifications, expert endorsements, medical credentials, customer counts, delivery promises, or business history.
+
+### Shop page
+
+Implement:
+- Responsive product grid.
+- Product search.
+- Category filters.
+- Sorting by relevance, name, and price.
+- Pagination or efficient incremental loading.
+- Product image, name, price, short description, and availability.
+- Working View Product and Add to Cart controls.
+- Clear loading, empty, and error states.
+- Useful filters on mobile.
+- Database-driven product data.
+
+Filters and pagination must work together correctly and update the displayed results.
+
+### Product details
+
+Display:
+- Product name.
+- Product gallery.
+- Price.
+- Size or volume.
+- Available variants.
+- Variant-specific prices where applicable.
+- Current availability.
+- Quantity selector.
+- Add to Cart.
+- Order via WhatsApp.
+- Description.
+- Ingredients and specifications where supplied.
+- Usage instructions where verified.
+- Related products.
+- Relevant delivery and return information.
+
+Generate stable product slugs and handle missing or archived products gracefully.
+
+### Shopping cart
+
+Support:
+- Multiple different products.
+- Multiple variants of the same product.
+- Quantity increase and decrease.
+- Item removal.
+- Current prices.
+- Per-line totals.
+- Subtotal.
+- Estimated total before delivery.
+- Empty cart state.
+- Continue shopping.
+- Proceed to WhatsApp.
+- Cart persistence across navigation and refreshes.
+
+Use stable product and variant IDs as cart references.
+
+Do not trust stored client-side prices or stock information. Revalidate current prices and availability before generating the order.
+
+Use integer minor currency units for monetary calculations to avoid floating-point errors.
+
+Do not calculate or imply a confirmed delivery fee when the fee is unknown.
+
+## 7. WHATSAPP ORDERING
+
+This is the highest-priority business feature.
+
+Implement a configurable WhatsApp integration using the business number supplied above.
+
+Centralize WhatsApp number handling. Do not duplicate the number throughout the source code.
+
+Provide:
+- Floating WhatsApp button on public storefront pages.
+- General support message.
+- Product-specific ordering.
+- Multi-product cart ordering.
+- A customer-readable message preview.
+- Correct URL encoding.
+- Mobile WhatsApp support.
+- Desktop WhatsApp Web support.
+- A telephone or copy-message fallback.
+
+Generate the message dynamically from the actual cart.
+
+Include:
+- Greeting.
+- Store name.
+- Product names.
+- Selected variants.
+- Quantity.
+- Unit price.
+- Line total.
+- Subtotal.
+- Estimated total before delivery.
+- Request to confirm availability, delivery fees, payment instructions, and delivery options.
+
+Format amounts using the Nigerian locale.
+
+The WhatsApp recipient should be normalized and validated.
+
+Do not open WhatsApp with a malformed or empty cart message.
+
+If all items are unavailable or a product price has changed, provide a clear explanation and allow the customer to correct the cart.
+
+Do not automatically claim that an order has been placed, received, confirmed, or paid.
+
+Track a WhatsApp checkout click separately from a confirmed sale.
+
+The business owner manually confirms orders and handles payment and delivery.
+
+## 8. DATABASE DESIGN
+
+Create and document a proper PostgreSQL schema with version-controlled migrations.
+
+Include, at minimum, appropriate structures for:
+
+- Products.
+- Categories.
+- Product-category relationships if multiple categories per product are supported.
+- Product images.
+- Product variants.
+- Collections.
+- Collection-product relationships.
+- Site settings.
+- Editable content pages and policies.
+- Administrator profile metadata linked to the authentication provider.
+
+Use primary keys, foreign keys, unique constraints, appropriate indexes, timestamps, and explicit data types.
+
+Product fields should support:
+- Stable ID.
+- Name.
+- Unique slug.
+- SKU where applicable.
+- Short description.
+- Full description.
+- Base price in minor currency units.
+- Optional comparison price.
+- Category relationships.
+- Image gallery.
+- Stock quantity where tracked.
+- Featured status.
+- Publication status.
+- Creation and update timestamps.
+
+Use appropriate schema relationships for variants, categories, and images.
+
+Support draft, published, out-of-stock, and archived product states as appropriate.
+
+Do not permanently delete products by default when archival is safer.
+
+Store product image paths or storage references, not temporary local filesystem paths.
+
+Create indexes for common queries such as product slug, status, category relationships, and product name search.
+
+Implement database migrations and document how to apply them in development, preview, and production environments.
+
+Seed only clearly labeled demonstration content if needed. Do not represent fictional products, prices, reviews, or claims as verified business information.
+
+## 9. ADMIN DASHBOARD
+
+Create a dedicated, responsive administrator interface with a clear visual distinction from the public storefront.
+
+Required pages:
+- /admin/login
+- /admin
+- /admin/products
+- /admin/products/new
+- /admin/products/[id]/edit
+- /admin/categories
+- /admin/collections
+- /admin/content
+- /admin/settings
+- /admin/policies
+
+Implement:
+- Product creation.
+- Product editing.
+- Product archiving.
+- Price changes.
+- Image upload, replacement, ordering, and removal.
+- Product descriptions.
+- Category assignment.
+- Variant management.
+- Stock availability.
+- Featured product controls.
+- Collection management.
+- Homepage content editing.
+- About page editing.
+- Contact information editing.
+- WhatsApp number editing.
+- Social media link editing.
+- Policy editing and publishing.
+
+Include:
+- Form validation.
+- Loading indicators.
+- Success and error messages.
+- Confirmation before destructive actions.
+- Search and filtering in admin tables.
+- Empty states.
+- Accessible image-upload controls.
+- Safe handling of invalid uploads.
+
+After a successful update, the public storefront must reflect the change without requiring a code edit or a new website deployment.
+
+Use server-side data validation and authorization for all privileged operations.
+
+## 10. AUTHENTICATION AND SECURITY
+
+Security is mandatory.
+
+Use managed authentication and server-side authorization.
+
+Requirements:
+- No unrestricted public administrator registration.
+- Secure creation of the initial administrator.
+- Secure password handling through the authentication provider.
+- Server-side access checks on admin pages and all mutation endpoints.
+- Correct database access policies and row-level security.
+- Least-privilege database permissions.
+- Secure session handling.
+- Appropriate logout and session-expiration behavior.
+- Secure password recovery.
+- Validation of all inputs on the server.
+- Protection against unauthorized price, stock, content, and settings changes.
+- Safe output rendering.
+- Upload type and size validation.
+- Protection against path traversal and unsafe file operations.
+- Reasonable rate limiting for sensitive endpoints.
+- Appropriate CSRF protections for the selected authentication architecture.
+- Security headers where supported.
+- Safe error responses that do not expose secrets or stack traces.
+- No sensitive keys committed to source control.
+
+Keep service-role keys, database credentials, and other privileged secrets server-side.
+
+Never expose service-role keys or private credentials through public frontend environment variables.
+
+Do not rely on hiding admin buttons, checking local storage, or redirecting in the browser as the sole security mechanism.
+
+Test anonymous access and unauthorized mutation attempts explicitly.
+
+## 11. ROUTING AND 404 PREVENTION
+
+Use Next.js App Router consistently. Do not mix incompatible routing systems.
+
+Create every intended route and verify all internal links.
+
+Requirements:
+- Direct navigation to valid pages must work.
+- Dynamic product, category, and collection routes must resolve correctly.
+- Refreshing deep links must work in production.
+- Unknown slugs must return a proper, branded not-found state.
+- Database failures must show useful error states.
+- Loading states must be implemented.
+- Admin pages must require authentication.
+- Authentication redirects must work correctly.
+- Deleted or archived products must be handled intentionally.
+- Missing product images must have a fallback.
+- Broken internal links must be eliminated.
+- No navigation control may point to an unimplemented route.
+
+Implement:
+- app/not-found.tsx.
+- Appropriate route-level error boundaries.
+- A global error boundary.
+- Loading UI for data-dependent pages.
+- Graceful handling of network and database failures.
+- Recovery or retry actions where appropriate.
+
+A real missing resource must not be disguised as a successful response. Return correct status codes.
+
+Do not use a blanket catch-all rewrite that returns the homepage for every unknown URL.
+
+For Vercel, use the supported Next.js deployment configuration.
+
+For Netlify, verify compatibility with the selected Next.js runtime or adapter, including dynamic routes, server-side rendering, API handlers, authentication callbacks, and middleware.
+
+Do not introduce conflicting redirects or static hosting settings.
+
+Test valid and invalid direct URLs, including page refreshes on the production deployment.
+
+## 12. IMAGE MANAGEMENT
+
+Use persistent storage for administrator-uploaded product images.
+
+Support:
+- Uploading multiple product images.
+- Choosing the primary image.
+- Reordering images.
+- Editing alt text.
+- Replacing and removing images.
+- Validating file type and file size.
+- Displaying upload progress.
+- Handling upload failures.
+- Preventing broken references after image replacement.
+- Responsive image rendering.
+- Sensible image optimization.
+
+Use real supplied product imagery where available.
+
+If the business has not supplied product images, use clearly labeled placeholders or permitted representative imagery. Never present an illustrative image as the confirmed photograph of a specific product.
+
+Ensure product images have descriptive alt text and fixed aspect ratios where appropriate.
+
+## 13. SEO AND DISCOVERABILITY
+
+Implement:
+- Unique page titles.
+- Meta descriptions.
+- Canonical URLs.
+- Appropriate Open Graph metadata.
+- Product-specific metadata.
+- Breadcrumb navigation.
+- Descriptive image alt text.
+- Clean URL slugs.
+- sitemap.xml.
+- robots.txt.
+- Appropriate product structured data when its fields are verified.
+- Correct indexing directives for admin, cart, and other non-public utility pages.
+- Proper handling of archived and deleted products.
+
+Use the configured production domain for canonical URLs.
+
+Do not invent product ratings, review counts, availability, or price information in structured data.
+
+## 14. PERFORMANCE AND ACCESSIBILITY
+
+Target a fast, lightweight website that works well on ordinary mobile connections in Nigeria.
+
+Implement:
+- Responsive images.
+- Modern image formats where supported.
+- Lazy loading for below-the-fold media.
+- Appropriate priority for the hero image.
+- Efficient server-side rendering.
+- Sensible caching.
+- Efficient database queries.
+- Pagination for large catalogs.
+- Minimal unnecessary JavaScript.
+- Optimized font loading.
+- Loading placeholders that avoid layout shifts.
+- Responsive navigation.
+- Keyboard accessibility.
+- Semantic HTML.
+- Visible focus states.
+- Proper form labels.
+- Accessible dialogs and menus.
+- Reduced-motion support.
+- Appropriate color contrast.
+
+Avoid horizontal overflow and unusable controls on small screens.
+
+Test at narrow mobile widths, common tablet widths, and desktop widths.
+
+## 15. ANALYTICS
+
+Implement a privacy-conscious analytics strategy.
+
+Track distinct events such as:
+- Page view.
+- Product view.
+- Search.
+- Category selection.
+- Add to cart.
+- Remove from cart.
+- Cart quantity update.
+- Begin WhatsApp checkout.
+- General WhatsApp contact click.
+- Telephone link click.
+
+Do not label a WhatsApp click as a completed order.
+
+The business may manually record confirmed sales initially.
+
+Make analytics configurable through environment settings. Respect applicable consent and privacy requirements, and do not send unnecessary personal data to analytics services.
+
+## 16. ENVIRONMENT CONFIGURATION
+
+Create a documented environment variable template.
+
+Include the appropriate variables for:
+- Public application URL.
+- Supabase project URL.
+- Supabase public/anonymous key, if used by the selected client integration.
+- Server-side service-role key only where necessary.
+- Authentication callback configuration.
+- Optional analytics identifier.
+- Optional error-monitoring configuration.
+
+Follow the selected provider's current environment-variable conventions.
+
+Never insert real secrets into committed files.
+
+Provide a clear distinction between local development, preview, and production configuration.
+
+Validate required environment variables and show useful startup or deployment diagnostics when configuration is incomplete.
+
+Do not silently substitute fake database responses when production configuration is missing.
+
+## 17. TESTING REQUIREMENTS
+
+Write and run meaningful tests.
+
+### Unit tests
+- Currency formatting.
+- Money arithmetic.
+- Price validation.
+- Quantity validation.
+- Cart subtotal calculations.
+- Variant selection.
+- WhatsApp message generation.
+- Phone number normalization.
+- URL encoding.
+- Product slug handling.
+
+### Integration tests
+- Product queries.
+- Category filtering.
+- Admin product creation.
+- Admin product updates.
+- Price changes.
+- Stock changes.
+- Image metadata updates.
+- Settings updates.
+- Authorization and forbidden operations.
+
+### Playwright end-to-end tests
+1. Open the homepage.
+2. Navigate to the shop.
+3. Search for a product.
+4. Open a product detail page.
+5. Select a variant where applicable.
+6. Add multiple products to the cart.
+7. Change quantities.
+8. Remove a product.
+9. Verify the subtotal.
+10. Refresh the cart and verify persistence.
+11. Generate a WhatsApp order message.
+12. Verify the intended recipient and message content.
+13. Verify that opening WhatsApp is not recorded as a confirmed sale.
+14. Open a valid product URL directly.
+15. Refresh a valid product URL.
+16. Open an invalid product URL and verify graceful not-found behavior.
+17. Visit admin routes while unauthenticated and verify access is denied.
+18. Sign in as an authorized administrator.
+19. Create, edit, and archive a product.
+20. Change a product price and verify the public catalog reflects the change.
+21. Verify unauthorized users cannot mutate products or settings.
+22. Test relevant flows on mobile and desktop viewport sizes.
+
+Run linting, type checking, unit tests, production builds, and end-to-end tests where the environment permits.
+
+Fix failures rather than merely documenting them.
+
+## 18. ERROR HANDLING
+
+Create polished, brand-consistent states for:
+- Loading.
+- Empty catalog.
+- Empty search results.
+- Empty cart.
+- Product unavailable.
+- Product not found.
+- Network failure.
+- Database failure.
+- Image upload failure.
+- Authentication failure.
+- Session expiry.
+- Unauthorized access.
+- Form validation errors.
+- Unexpected application errors.
+
+Give users clear explanations and useful recovery actions.
+
+Do not display raw stack traces or confidential backend details.
+
+Do not leave dead buttons, fake links, empty event handlers, or non-functional controls.
+
+## 19. BUSINESS INFORMATION AND CONTENT RULES
+
+Only publish verified business facts.
+
+Known details:
+- Business: GlowHauz Skincare and Wellness Store.
+- Brand statement: Where Skin Meets Science.
+- Supplied WhatsApp number: 07089581351.
+- Primary currency: Nigerian naira.
+
+Other details, including email, physical address, opening hours, delivery rates, returns conditions, social accounts, certifications, and specific product inventory, must be supplied or approved by the owner.
+
+Until supplied:
+- Use clearly labeled editable placeholders in the admin.
+- Avoid displaying fake customer reviews.
+- Avoid fabricated contact information.
+- Avoid claiming delivery is free or available nationwide.
+- Avoid unsupported claims about product safety, efficacy, or medical benefits.
+- Do not invent credentials or regulatory approvals.
+- Clearly mark sample catalog data as demonstration content.
+
+Make the final approved content easy to manage from the dashboard.
+
+## 20. PROJECT IMPLEMENTATION ORDER
+
+Work in deliberate stages.
+
+Stage 1: Inspect the current environment and project files. Identify the framework, existing implementation, constraints, and available integrations.
+
+Stage 2: Establish the application architecture, design tokens, route map, shared components, and responsive layouts.
+
+Stage 3: Create the database schema, migrations, authentication integration, access policies, and image storage.
+
+Stage 4: Implement the public storefront and database-driven catalog.
+
+Stage 5: Implement product detail pages, search, categories, collections, and related products.
+
+Stage 6: Implement cart persistence, exact totals, validation, and WhatsApp order generation.
+
+Stage 7: Implement the administrator dashboard and secure content-management operations.
+
+Stage 8: Implement SEO, accessibility, performance improvements, analytics, and error handling.
+
+Stage 9: Write and run tests, fix defects, verify deep-link behavior, and inspect the production build.
+
+Stage 10: Prepare deployment configuration, environment documentation, migration instructions, backups, and owner handover documentation.
+
+Do not build a superficial version of every page and declare the project complete. Finish the functionality of each stage and verify its acceptance criteria.
+
+If a tool limitation prevents a task from being completed, explain the exact limitation and provide the appropriate remaining implementation steps. Do not fabricate success.
+
+## 21. DEFINITION OF DONE
+
+The project is complete only when:
+
+- The storefront has a consistent, polished design.
+- All required public routes are implemented.
+- Products are loaded from a persistent database.
+- The administrator can create, edit, archive, and manage products.
+- Product images are stored persistently.
+- Categories and collections are editable.
+- Prices and availability are updated correctly.
+- Product variants work correctly.
+- The cart supports multiple products.
+- Cart totals are accurate.
+- The cart survives refreshes.
+- WhatsApp order messages are generated dynamically and correctly.
+- The configured WhatsApp recipient is correct.
+- A fallback contact mechanism exists.
+- The website does not falsely confirm orders or payments.
+- Administrator authentication works.
+- Unauthorized visitors cannot mutate privileged data.
+- Database policies and server-side access checks are verified.
+- Environment variables are documented.
+- Valid direct routes and refreshes work on the deployed site.
+- Unknown routes show intentional not-found behavior.
+- No known broken internal links remain.
+- Loading, empty, and error states exist.
+- Mobile and desktop layouts have been tested.
+- SEO metadata and image optimization are implemented.
+- Tests, linting, type checks, and production build pass in the available environment.
+- Deployment and handover instructions are complete.
+
+## 22. REQUIRED FINAL REPORT
+
+At the end of implementation, provide a concise but detailed engineering handover report containing:
+
+1. Architecture and technology choices.
+2. Implemented routes and features.
+3. Database schema and migration status.
+4. Authentication and authorization approach.
+5. Required environment variables, without exposing secret values.
+6. Local development instructions.
+7. Database setup and migration instructions.
+8. Administrator account creation instructions.
+9. Image storage configuration.
+10. Deployment instructions for the selected hosting platform.
+11. Test results, including any tests that could not be run.
+12. Known limitations or unresolved issues.
+13. Required owner-supplied assets and policies.
+14. Backup and maintenance recommendations.
+
+Distinguish between implemented, tested, deployed, and pending functionality.
+
+Never claim a deployment succeeded unless the actual deployment has been verified.
+
+Now begin by inspecting the available project environment and selecting the safest implementation path. Then execute the project in the stages above, producing a real, maintainable, production-oriented application rather than just a design preview.

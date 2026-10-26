@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #F8F5EF;
+  --color-rose: #E8C9CC;
+  --color-rose-light: #F6EAEC;
+  --color-sage: #A7B5A0;
+  --color-sage-light: #EDF1EC;
+  --color-forest: #34483B;
+  --color-forest-dark: #243329;
+  --color-forest-hover: #2B3D31;
+  --color-charcoal: #292B28;
+  --color-charcoal-muted: #666963;
+  --color-border-subtle: #E6E0D5;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-editorial {
+  font-family: var(--font-serif);
+}
+
+/* Accessible visible focus states */
+:focus-visible {
+  outline: 2px solid var(--color-forest);
+  outline-offset: 2px;
+}
+
+/* Floating animation */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0.5deg);
+  }
+}
+
+.animate-float {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+/* Luxury Glow utilities */
+.glow-rose {
+  box-shadow: 0 10px 30px -5px rgba(232, 201, 204, 0.45);
+}
+
+.glow-forest {
+  box-shadow: 0 12px 32px -6px rgba(52, 72, 59, 0.22);
+}
+
+.glow-ambient {
+  box-shadow: 0 20px 45px -10px rgba(41, 43, 40, 0.10);
+}
+
+/* Restrained transitions */
+button, a, input, select, textarea {
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 200ms;
+}
