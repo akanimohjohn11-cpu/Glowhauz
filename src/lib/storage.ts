@@ -7,6 +7,7 @@ import {
   StorePolicies,
 } from '../types';
 import { normalizeWhatsAppNumber } from './whatsapp';
+import { resolveImageUrl } from './imageUtils';
 
 // LocalStorage Keys
 const STORAGE_KEYS = {
@@ -90,7 +91,7 @@ const INITIAL_PRODUCTS: Product[] = [
     categoryName: 'Serums & Treatments',
     categorySlug: 'serums-treatments',
     collectionIds: ['col-radiance'],
-    images: ['/src/assets/images/product_radiance_serum_1793008581412.jpg'],
+    images: ['/images/product_radiance_serum_1793008581412.jpg'],
     variants: [
       { id: 'var-001-30', name: '30ml / 1.0 fl oz', price: 18500, sku: 'GH-SER-001-30', stock: 18 },
       { id: 'var-001-50', name: '50ml / 1.7 fl oz', price: 26000, sku: 'GH-SER-001-50', stock: 9 },
@@ -120,7 +121,7 @@ const INITIAL_PRODUCTS: Product[] = [
     categoryName: 'Moisturizers & Creams',
     categorySlug: 'moisturizers-creams',
     collectionIds: ['col-barrier', 'col-radiance'],
-    images: ['/src/assets/images/product_ceramide_cream_1793008582747.jpg'],
+    images: ['/images/product_ceramide_cream_1793008582747.jpg'],
     variants: [
       { id: 'var-002-50', name: '50ml / 1.7 oz', price: 22000, sku: 'GH-CRM-002-50', stock: 14 },
       { id: 'var-002-100', name: '100ml / 3.4 oz (Value Jar)', price: 34500, sku: 'GH-CRM-002-100', stock: 7 },
@@ -150,7 +151,7 @@ const INITIAL_PRODUCTS: Product[] = [
     categoryName: 'Cleansers & Washes',
     categorySlug: 'cleansers-washes',
     collectionIds: ['col-clarifying'],
-    images: ['/src/assets/images/product_salicylic_cleanser_1793008583027.jpg'],
+    images: ['/images/product_salicylic_cleanser_1793008583027.jpg'],
     variants: [
       { id: 'var-003-200', name: '200ml / 6.7 fl oz', price: 14500, sku: 'GH-CLN-003-200', stock: 22 },
     ],
@@ -179,7 +180,7 @@ const INITIAL_PRODUCTS: Product[] = [
     categoryName: 'Toners & Facial Mists',
     categorySlug: 'toners-mists',
     collectionIds: ['col-radiance', 'col-barrier'],
-    images: ['/src/assets/images/product_rose_essence_mist_1793008583530.jpg'],
+    images: ['/images/product_rose_essence_mist_1793008583530.jpg'],
     variants: [
       { id: 'var-004-100', name: '100ml / 3.4 fl oz', price: 12500, sku: 'GH-MST-004-100', stock: 25 },
     ],
@@ -208,7 +209,7 @@ const INITIAL_PRODUCTS: Product[] = [
     categoryName: 'Serums & Treatments',
     categorySlug: 'serums-treatments',
     collectionIds: ['col-clarifying'],
-    images: ['/src/assets/images/product_radiance_serum_1793008581412.jpg'],
+    images: ['/images/product_radiance_serum_1793008581412.jpg'],
     variants: [
       { id: 'var-005-30', name: '30ml / 1.0 fl oz', price: 16000, sku: 'GH-SER-005-30', stock: 15 },
     ],
@@ -237,7 +238,7 @@ const INITIAL_PRODUCTS: Product[] = [
     categoryName: 'Sun Protection & Wellness',
     categorySlug: 'sun-protection-wellness',
     collectionIds: ['col-radiance', 'col-barrier'],
-    images: ['/src/assets/images/product_ceramide_cream_1793008582747.jpg'],
+    images: ['/images/product_ceramide_cream_1793008582747.jpg'],
     variants: [
       { id: 'var-006-50', name: '50ml / 1.7 fl oz', price: 19500, sku: 'GH-SPF-006-50', stock: 20 },
     ],
@@ -475,7 +476,11 @@ class StoreDatabase {
 
   // Products
   getProducts(): Product[] {
-    return this.get<Product[]>(STORAGE_KEYS.PRODUCTS, INITIAL_PRODUCTS);
+    const raw = this.get<Product[]>(STORAGE_KEYS.PRODUCTS, INITIAL_PRODUCTS);
+    return raw.map((p) => ({
+      ...p,
+      images: (p.images || []).map(resolveImageUrl),
+    }));
   }
 
   setProducts(products: Product[]): void {

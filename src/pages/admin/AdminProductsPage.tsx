@@ -4,6 +4,7 @@ import { useStore } from '../../context/StoreContext';
 import { db } from '../../lib/storage';
 import { formatPrice } from '../../lib/currency';
 import { Product } from '../../types';
+import { resolveImageUrl } from '../../lib/imageUtils';
 import {
   Plus,
   Search,
@@ -159,7 +160,7 @@ export const AdminProductsPage: React.FC = () => {
             </thead>
             <tbody className="divide-y divide-[#E6E0D5]">
               {filteredProducts.map((p) => {
-                const primaryImg = p.images?.[0];
+                const primaryImg = resolveImageUrl(p.images?.[0]);
                 return (
                   <tr key={p.id} className="hover:bg-[#F8F5EF]/50 transition-colors">
                     {/* Thumbnail & Name */}

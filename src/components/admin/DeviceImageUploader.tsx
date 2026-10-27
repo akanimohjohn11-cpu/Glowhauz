@@ -19,6 +19,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { uploadImageFromFile, ImageUploadResult } from '../../lib/imageUploader';
+import { resolveImageUrl } from '../../lib/imageUtils';
 
 interface DeviceImageUploaderProps {
   images: string[];
@@ -27,10 +28,10 @@ interface DeviceImageUploaderProps {
 }
 
 const PRESET_IMAGES = [
-  { label: 'Radiance Serum (Amber Dropper)', url: '/src/assets/images/product_radiance_serum_1793008581412.jpg' },
-  { label: 'Ceramide Moisture Creme (Jar)', url: '/src/assets/images/product_ceramide_cream_1793008582747.jpg' },
-  { label: 'Clarifying Salicylic Cleanser (Green)', url: '/src/assets/images/product_salicylic_cleanser_1793008583027.jpg' },
-  { label: 'Rosé Hydrating Mist (Spray)', url: '/src/assets/images/product_rose_essence_mist_1793008583530.jpg' },
+  { label: 'Radiance Serum (Amber Dropper)', url: '/images/product_radiance_serum_1793008581412.jpg' },
+  { label: 'Ceramide Moisture Creme (Jar)', url: '/images/product_ceramide_cream_1793008582747.jpg' },
+  { label: 'Clarifying Salicylic Cleanser (Green)', url: '/images/product_salicylic_cleanser_1793008583027.jpg' },
+  { label: 'Rosé Hydrating Mist (Spray)', url: '/images/product_rose_essence_mist_1793008583530.jpg' },
 ];
 
 export const DeviceImageUploader: React.FC<DeviceImageUploaderProps> = ({
@@ -262,7 +263,7 @@ export const DeviceImageUploader: React.FC<DeviceImageUploaderProps> = ({
                 className="relative aspect-square border border-[#E6E0D5] rounded-xs overflow-hidden group bg-white shadow-2xs"
               >
                 <img
-                  src={url}
+                  src={resolveImageUrl(url)}
                   alt={`Product view ${idx + 1}`}
                   className="w-full h-full object-cover"
                 />

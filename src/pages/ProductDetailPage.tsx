@@ -9,6 +9,7 @@ import {
   createWhatsAppUrl,
 } from '../lib/whatsapp';
 import { trackEvent } from '../lib/analytics';
+import { resolveImageUrl } from '../lib/imageUtils';
 import {
   ShoppingBag,
   MessageCircle,
@@ -71,7 +72,7 @@ export const ProductDetailPage: React.FC = () => {
 
   const selectedVariant = product.variants.find((v) => v.id === selectedVariantId) || product.variants[0];
   const activePrice = selectedVariant ? selectedVariant.price : product.price;
-  const currentImages = product.images?.length > 0 ? product.images : [];
+  const currentImages = (product.images?.length > 0 ? product.images : []).map(resolveImageUrl);
   const activeImage = currentImages[selectedImageIndex] || currentImages[0];
 
   const handleAddToCart = () => {

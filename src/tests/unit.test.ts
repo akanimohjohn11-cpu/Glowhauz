@@ -138,4 +138,31 @@ assert(mockUploadResult.success === true, 'Upload result success is true');
 assert(mockUploadResult.storage === 'supabase', 'Recognizes Supabase storage provider');
 assert(mockUploadResult.url.includes('glowhauz-products'), 'Path belongs to product bucket');
 
+// 8. Image URL resolution for production Vercel hosting
+console.log('Test 8: Image URL resolution for production Vercel hosting');
+import { resolveImageUrl } from '../lib/imageUtils';
+assert(
+  resolveImageUrl('/src/assets/images/product_radiance_serum_1793008581412.jpg') ===
+    '/images/product_radiance_serum_1793008581412.jpg',
+  'Resolves dev /src/assets/images/ path to /images/'
+);
+assert(
+  resolveImageUrl('src/assets/images/product_ceramide_cream_1793008582747.jpg') ===
+    '/images/product_ceramide_cream_1793008582747.jpg',
+  'Resolves relative src/assets/images/ path to /images/'
+);
+assert(
+  resolveImageUrl('/images/product_radiance_serum_1793008581412.jpg') ===
+    '/images/product_radiance_serum_1793008581412.jpg',
+  'Preserves clean /images/ path'
+);
+assert(
+  resolveImageUrl('https://example.com/photo.jpg') === 'https://example.com/photo.jpg',
+  'Preserves external https URLs'
+);
+assert(
+  resolveImageUrl('data:image/jpeg;base64,abc123==') === 'data:image/jpeg;base64,abc123==',
+  'Preserves data URLs'
+);
+
 console.log('--- ALL UNIT TESTS PASSED SUCCESSFULLY! ---');

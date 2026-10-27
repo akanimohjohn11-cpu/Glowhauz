@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { formatPrice } from '../lib/currency';
 import { WhatsAppOrderModal } from '../components/cart/WhatsAppOrderModal';
+import { resolveImageUrl } from '../lib/imageUtils';
 import {
   Trash2,
   Plus,
@@ -90,7 +91,7 @@ export const CartPage: React.FC = () => {
           <div className="bg-white border border-[#E6E0D5] rounded-xs divide-y divide-[#E6E0D5]">
             {validatedItems.map((vi) => {
               const itemKey = vi.item.id;
-              const primaryImg = vi.product.images?.[0];
+              const primaryImg = resolveImageUrl(vi.product.images?.[0]);
 
               return (
                 <div key={itemKey} className="p-4 sm:p-6 flex flex-col sm:flex-row gap-4 sm:items-center justify-between">

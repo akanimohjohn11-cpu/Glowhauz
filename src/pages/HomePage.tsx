@@ -18,8 +18,8 @@ export const HomePage: React.FC = () => {
   const { featuredProducts, categories, collections, settings, content } = useStore();
   const [openFaqId, setOpenFaqId] = useState<string | null>('faq-1');
 
-  const heroBgImage = '/src/assets/images/hero_luxury_botanical_bg_1793010027228.jpg';
-  const heroImage = '/src/assets/images/glowhauz_hero_botanical_1793008581757.jpg';
+  const heroBgImage = '/images/hero_luxury_botanical_bg_1793010027228.jpg';
+  const heroImage = '/images/glowhauz_hero_botanical_1793008581757.jpg';
 
   const handleHeroWhatsAppClick = () => {
     trackEvent('whatsapp_contact_click', { source: 'hero_cta' });

@@ -4,6 +4,7 @@ import { Product } from '../../types';
 import { formatPrice } from '../../lib/currency';
 import { useCart } from '../../context/CartContext';
 import { ShoppingBag, Sparkles } from 'lucide-react';
+import { resolveImageUrl } from '../../lib/imageUtils';
 
 interface ProductCardProps {
   product: Product;
@@ -14,7 +15,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const [imgError, setImgError] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
 
-  const primaryImage = product.images?.[0];
+  const primaryImage = resolveImageUrl(product.images?.[0]);
 
   React.useEffect(() => {
     setImgError(false);

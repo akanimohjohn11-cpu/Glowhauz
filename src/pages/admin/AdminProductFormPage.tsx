@@ -51,10 +51,10 @@ export const AdminProductFormPage: React.FC = () => {
 
   // Suggested pre-generated stock images
   const PRESET_IMAGES = [
-    { label: 'Radiance Serum (Amber Dropper)', url: '/src/assets/images/product_radiance_serum_1793008581412.jpg' },
-    { label: 'Ceramide Moisture Creme (Jar)', url: '/src/assets/images/product_ceramide_cream_1793008582747.jpg' },
-    { label: 'Clarifying Salicylic Cleanser (Green)', url: '/src/assets/images/product_salicylic_cleanser_1793008583027.jpg' },
-    { label: 'Rosé Hydrating Mist (Spray)', url: '/src/assets/images/product_rose_essence_mist_1793008583530.jpg' },
+    { label: 'Radiance Serum (Amber Dropper)', url: '/images/product_radiance_serum_1793008581412.jpg' },
+    { label: 'Ceramide Moisture Creme (Jar)', url: '/images/product_ceramide_cream_1793008582747.jpg' },
+    { label: 'Clarifying Salicylic Cleanser (Green)', url: '/images/product_salicylic_cleanser_1793008583027.jpg' },
+    { label: 'Rosé Hydrating Mist (Spray)', url: '/images/product_rose_essence_mist_1793008583530.jpg' },
   ];
 
   // Load existing product if editing
@@ -191,7 +191,7 @@ export const AdminProductFormPage: React.FC = () => {
       categoryName: selectedCategory ? selectedCategory.name : (existing?.categoryName || 'Botanical Care'),
       categorySlug: selectedCategory ? selectedCategory.slug : (existing?.categorySlug || 'serums-treatments'),
       collectionIds: existing?.collectionIds || ['col-radiance'], // Preserve collections
-      images: images.length > 0 ? images : ['/src/assets/images/product_radiance_serum_1793008581412.jpg'],
+      images: images.length > 0 ? images : ['/images/product_radiance_serum_1793008581412.jpg'],
       variants: variants.length > 0 ? variants : [{ id: `var-def-${Date.now()}`, name: sizeOrVolume || 'Standard', price: Math.round(Number(price)), stock: stockQuantity }],
       stockQuantity: Number(stockQuantity),
       isAvailable: Boolean(isAvailable),
